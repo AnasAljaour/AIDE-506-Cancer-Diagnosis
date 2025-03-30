@@ -18,14 +18,7 @@ import math
 # Set random seed for reproducibility
 np.random.seed(42)
 
-feature_name =  [
-        "Radius_Mean", "Texture_Mean", "Perimeter_Mean", "Area_Mean", "Smoothness_Mean", "Compactness_Mean",
-        "Concavity_Mean", "ConcavePoints_Mean", "Symmetry_Mean", "FractalDimension_Mean",
-        "Radius_SE", "Texture_SE", "Perimeter_SE", "Area_SE", "Smoothness_SE", "Compactness_SE",
-        "Concavity_SE", "ConcavePoints_SE", "Symmetry_SE", "FractalDimension_SE",
-        "Radius_Worst", "Texture_Worst", "Perimeter_Worst", "Area_Worst", "Smoothness_Worst",
-        "Compactness_Worst", "Concavity_Worst", "ConcavePoints_Worst", "Symmetry_Worst", "FractalDimension_Worst"
-    ]
+
 # 1. Data Loading and Exploration
 def load_and_explore_data(filepath='wdbc.data'):
     print("Loading dataset...")
@@ -305,11 +298,13 @@ def plot_evaluation_metrics(results):
 
 # 9. Visualization of Explanations
 def visualize_explanations_Shap(all_models, ensemble_models, X_train, X_test, feature_names):
-    selected_models = {
-        'Bagging (last model)': ensemble_models['bagging'][19],  # First Bagging model
-        'Random Forest (last model)': ensemble_models['Random Forest'][19],  # First RF model
-        'Boosting (last model)': ensemble_models['boosting'][0][19],  # First Boosting model
-    }
+    # select the models to visualize
+    # selected_models = {
+    #     'Bagging (last model)': ensemble_models['bagging'][19],  
+    #     'Random Forest (last model)': ensemble_models['Random Forest'][19], 
+    #     'Boosting (last model)': ensemble_models['boosting'][0][19],  
+    # }
+
     model =  ensemble_models['boosting'][0][19]
    
     explainer = shap.Explainer(model, X_train)
