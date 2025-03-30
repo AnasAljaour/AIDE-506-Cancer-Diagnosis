@@ -12,8 +12,6 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier,
 from sklearn.linear_model import LogisticRegression
 from imblearn.over_sampling import SMOTE
 import shap
-import lime
-import lime.lime_tabular
 import math
 # Set random seed for reproducibility
 np.random.seed(42)
