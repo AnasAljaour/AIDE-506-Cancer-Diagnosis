@@ -121,4 +121,4 @@ The 30 features used in the classification are:
 
 ## Contributors
 - Anas Aljaour
-- Omar El Zammar
+- Omar El Zammar.
