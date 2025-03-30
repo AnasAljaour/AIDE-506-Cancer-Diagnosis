@@ -226,14 +226,14 @@ def evaluate_models(models, ensemble_models, X_test, y_test):
     for name, model in models.items():
         print(f"\nEvaluating {name}:")
 
-        # Predict
+        
         y_pred = model.predict(X_test)
         y_prob = model.predict_proba(X_test)[:, 1]
 
-        # Classification report
+        
         print(classification_report(y_test, y_pred))
 
-        # Confusion matrix
+        
         cm = confusion_matrix(y_test, y_pred)
         print(cm)
         results[name] = {
@@ -267,12 +267,12 @@ def evaluate_models(models, ensemble_models, X_test, y_test):
 def plot_evaluation_metrics(results):
     print("\nPlotting evaluation metrics...")
 
-    # Number of models
+    
     num_models = len(results)
 
 
-    cols = min(3, num_models)  # Maximum 3 columns per row
-    rows = math.ceil(num_models / cols)  # Calculate number of rows
+    cols = min(3, num_models)  
+    rows = math.ceil(num_models / cols)  
 
     # Adjust figure size dynamically
     fig, axes = plt.subplots(rows, cols, figsize=(6 * cols, 5 * rows), constrained_layout=True)
@@ -312,8 +312,6 @@ def visualize_explanations_Shap(all_models, ensemble_models, X_train, X_test, fe
     }
     model =  ensemble_models['boosting'][0][19]
    
-    print(f"\nGenerating SHAP plots for {model_name}...")
-
     explainer = shap.Explainer(model, X_train)
     shap_values = explainer(X_test)
     shap_values.feature_names = feature_names
