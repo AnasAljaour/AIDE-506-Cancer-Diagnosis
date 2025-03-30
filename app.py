@@ -3,13 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
-from sklearn.metrics import confusion_matrix, classification_report, precision_recall_curve, roc_curve, auc
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, VotingClassifier
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import  VotingClassifier
 from imblearn.over_sampling import SMOTE
 import shap
 import math
